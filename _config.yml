@@ -1,21 +1,29 @@
+# ===========================
 # 站点基础信息
-title: "王维MD便笺"
-description: "内容博客"
+# ===========================
+title: "我的个人博客"
+description: "这是我的个人博客，分享工作、生活和情感内容"
 baseurl: ""
 url: "https://hdbuyer.github.io"
-
-# 语言和时区
 lang: zh-CN
 timezone: Asia/Shanghai
 
-# 作者信息
+# ===========================
+# 主题配置（远程主题方式）
+# ===========================
+remote_theme: cotes2020/chirpy
+
+# ===========================
+# 作者信息与首页头像
+# ===========================
 author:
   name: "你的名字"
-  avatar: "https://cdn4.winhlb.com/2025/10/01/68dc80e94e839.jpg" # 头像URL
-  email: "your_email@example.com"
-  bio: "个人简介/公司名"
+  avatar: "https://cdn4.winhlb.com/2025/10/01/68dc80e94e839.jpg" # 替换成你的头像
+  bio: "个人简介 / 公司名称"
 
-# 导航栏
+# ===========================
+# 导航栏（汉化）
+# ===========================
 menu:
   - title: "首页"
     url: "/"
@@ -26,30 +34,32 @@ menu:
   - title: "归档"
     url: "/archives/"
 
-# 社交分享（国内主流APP示例）
+# ===========================
+# 社交分享（国内主流APP，点击复制）
+# ===========================
 social:
-  wechat: "微信ID"       # 点击可复制
-  weibo: "微博ID"
-  qq: "QQ号"
+  wechat: "你的微信ID"
+  weibo: "你的微博ID"
+  qq: "你的QQ号"
 
-# 分类/标签
+# ===========================
+# 分页
+# ===========================
+paginate: 5
+paginate_path: "/page:num"
+
+# ===========================
+# 分类与标签
+# ===========================
 categories:
   - 工作
   - 生活
   - 情感
 
-# 分页
-paginate: 5
-paginate_path: "/page:num"
-
-# Markdown 解析
+# ===========================
+# Markdown 配置
+# ===========================
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
-
-# 插件
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
