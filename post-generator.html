@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Jekyll 文章生成器</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, select { width: 100%; padding: 8px; margin: 5px 0; }
+    button { padding: 10px 15px; margin-top: 10px; cursor: pointer; }
+    pre { background: #f5f5f5; padding: 10px; white-space: pre-wrap; }
+    label { font-weight: bold; display: block; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>📄 Jekyll 文章生成器（分类 + 标签 + 下载）</h2>
+
+  <label>文章标题：</label>
+  <input type="text" id="title" placeholder="输入文章标题">
+
+  <label>选择分类：</label>
+  <select id="category">
+    <option value="工作">工作</option>
+    <option value="生活">生活</option>
+    <option value="情感">情感</option>
+  </select>
+
+  <label>选择标签（可多选）：</label>
+  <select id="customTags" multiple>
+    <option value="印刷工艺">印刷工艺</option>
+    <option value="包装设计">包装设计</option>
+    <option value="产品原料">产品原料</option>
+    <option value="材料分析">材料分析</option>
+    <option value="食品包装">食品包装</option>
+    <option value="日常生活">日常生活</option>
+    <option value="生活百科">生活百科</option>
+    <option value="采购经验">采购经验</option>
+    <option value="供应链管理">供应链管理</option>
+    <option value="健康知识">健康知识</option>
+    <option value="环保材料">环保材料</option>
+    <option value="创意设计">创意设计</option>
+    <option value="设备使用">设备使用</option>
+    <option value="质量控制">质量控制</option>
+    <option value="市场趋势">市场趋势</option>
+  </select>
+
+  <button onclick="generate()">生成文章</button>
+
+  <h3>📝 文件名</h3>
+  <pre id="filename"></pre>
+  <button onclick="copyText('filename')">复制文件名</button>
+
+  <h3>📌 Front Matter + 模板</h3>
+  <pre id="output"></pre>
+  <button onclick="copyText('output')">复制模板</button>
+
+  <script>
+    // 根据标题生成 2~3 个标签
+    function generateTags(title) {
+      let words = title.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, " ")
+                       .split(/\s+/)
+                       .filter(w => w.length > 0);
+      if (words.length >= 3) return words.slice(0, 3);
+      if (words.length === 2) return words;
+      if (words.length === 1) return [words[0], "博客"];
+      return ["随笔", "博客"];
+    }
+
+    function generate() {
+      const title = document.getElementById("title").value.trim();
+      const category = document.getElementById("category").value;
+      if (!title) { alert("请输入文章标题"); return; }
+
+      const tagSelect = document.getElementById("customTags");
+      const selectedTags = Array.from(tagSelect.selectedOptions).map(opt => opt.value);
+
+      const autoTags = generateTags(title);
+      const tags = selectedTags.length > 0 ? selectedTags : autoTags;
+
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      const hh = String(now.getHours()).padStart(2, "0");
+      const mi = String(now.getMinutes()).padStart(2, "0");
+      const ss = String(now.getSeconds()).padStart(2, "0");
+      const timeStr = `${yyyy}-${mm}-${dd} ${hh}:${mi}:${ss} +0800`;
+
+      const filename = `${yyyy}-${mm}-${dd}-${title}.md`;
+      const content = `---\ntitle: "${title}"\ndate: ${timeStr}\nlast_modified_at: ${timeStr}\ncategories: [${category}]\ntags: [${tags.join(", ")}]\n---\n\n在这里写正文内容...`;
+
+      document.getElementById("filename").textContent = `_posts/${filename}`;
+      document.getElementById("output").textContent = content;
+
+      // 自动下载文件
+      const blob = new Blob([content], { type: "text/markdown" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+    }
+
+    function copyText(id) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("已复制到剪贴板！");
+      });
+    }
+  </script>
+</body>
+</html>
