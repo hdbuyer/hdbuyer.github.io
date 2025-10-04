@@ -26,19 +26,16 @@
 
   <label>选择标签（可多选）：</label>
   <select id="customTags" multiple>
-    <option value="印刷工艺">印刷工艺</option>
-    <option value="包装设计">包装设计</option>
+    <option value="平面设计">平面设计</option>
+    <option value="印刷">印刷</option>
+    <option value="包装">包装</option>
     <option value="产品原料">产品原料</option>
-    <option value="材料分析">材料分析</option>
-    <option value="食品包装">食品包装</option>
-    <option value="日常生活">日常生活</option>
-    <option value="生活百科">生活百科</option>
+    <option value="职场经验">职场经验</option>
     <option value="采购经验">采购经验</option>
+    <option value="情感">情感</option>
+    <option value="生活百科">生活百科</option>
     <option value="供应链管理">供应链管理</option>
-    <option value="健康知识">健康知识</option>
-    <option value="环保材料">环保材料</option>
     <option value="创意设计">创意设计</option>
-    <option value="设备使用">设备使用</option>
     <option value="质量控制">质量控制</option>
     <option value="市场趋势">市场趋势</option>
   </select>
@@ -54,27 +51,14 @@
   <button onclick="copyText('output')">复制模板</button>
 
   <script>
-    // 根据标题生成 2~3 个标签
-    function generateTags(title) {
-      let words = title.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, " ")
-                       .split(/\s+/)
-                       .filter(w => w.length > 0);
-      if (words.length >= 3) return words.slice(0, 3);
-      if (words.length === 2) return words;
-      if (words.length === 1) return [words[0], "博客"];
-      return ["随笔", "博客"];
-    }
-
     function generate() {
       const title = document.getElementById("title").value.trim();
       const category = document.getElementById("category").value;
       if (!title) { alert("请输入文章标题"); return; }
 
       const tagSelect = document.getElementById("customTags");
-      const selectedTags = Array.from(tagSelect.selectedOptions).map(opt => opt.value);
-
-      const autoTags = generateTags(title);
-      const tags = selectedTags.length > 0 ? selectedTags : autoTags;
+      const tags = Array.from(tagSelect.selectedOptions).map(opt => opt.value);
+      if (tags.length === 0) { alert("请选择至少一个标签"); return; }
 
       const now = new Date();
       const yyyy = now.getFullYear();
@@ -98,13 +82,3 @@
       link.download = filename;
       link.click();
     }
-
-    function copyText(id) {
-      const text = document.getElementById(id).textContent;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("已复制到剪贴板！");
-      });
-    }
-  </script>
-</body>
-</html>
