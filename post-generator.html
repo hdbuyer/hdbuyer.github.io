@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-  <h2>📄 Jekyll 文章生成器（分类 + 标签 + 下载）</h2>
+  <h2>📄 Jekyll 文章生成器（分类 + 标签 + 自定义 + 下载）</h2>
 
   <label>文章标题：</label>
   <input type="text" id="title" placeholder="输入文章标题">
@@ -25,7 +25,7 @@
   </select>
 
   <label>选择标签（可多选）：</label>
-  <select id="customTags" multiple>
+  <select id="customTags" multiple onchange="checkCustom(this)">
     <option value="平面设计">平面设计</option>
     <option value="印刷">印刷</option>
     <option value="包装">包装</option>
@@ -38,7 +38,10 @@
     <option value="创意设计">创意设计</option>
     <option value="质量控制">质量控制</option>
     <option value="市场趋势">市场趋势</option>
+    <option value="读书笔记">读书笔记</option>
+    <option value="自定义">自定义</option>
   </select>
+  <input type="text" id="customInput" placeholder="请输入自定义标签，用逗号隔开" style="display:none; margin-top:5px; padding:5px; width:100%;">
 
   <button onclick="generate()">生成文章</button>
 
@@ -51,13 +54,28 @@
   <button onclick="copyText('output')">复制模板</button>
 
   <script>
+    function checkCustom(select) {
+      const customInput = document.getElementById("customInput");
+      const isCustomSelected = Array.from(select.selectedOptions).some(opt => opt.value === "自定义");
+      customInput.style.display = isCustomSelected ? "block" : "none";
+    }
+
     function generate() {
       const title = document.getElementById("title").value.trim();
       const category = document.getElementById("category").value;
       if (!title) { alert("请输入文章标题"); return; }
 
       const tagSelect = document.getElementById("customTags");
-      const tags = Array.from(tagSelect.selectedOptions).map(opt => opt.value);
+      let tags = Array.from(tagSelect.selectedOptions)
+                      .map(opt => opt.value)
+                      .filter(v => v !== "自定义");
+
+      const customInput = document.getElementById("customInput").value.trim();
+      if (customInput) {
+        const customTags = customInput.split(",").map(t => t.trim()).filter(t => t.length>0);
+        tags = tags.concat(customTags);
+      }
+
       if (tags.length === 0) { alert("请选择至少一个标签"); return; }
 
       const now = new Date();
@@ -82,3 +100,13 @@
       link.download = filename;
       link.click();
     }
+
+    function copyText(id) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("已复制到剪贴板！");
+      });
+    }
+  </script>
+</body>
+</html>
