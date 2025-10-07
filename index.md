@@ -14,21 +14,25 @@ title: "首页"
 
 <div style="text-align: center; margin: 3rem 0;">
   <div class="video-container" style="max-width: 800px; margin: 0 auto; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+    
+    <!-- 视频播放器 - 请将YOUR_VIDEO_URL替换为实际视频链接 -->
     <video 
       controls 
       width="100%" 
-      poster="/assets/images/video-poster.jpg" 
+      poster="/assets/images/video-poster.jpg"
       style="display: block;"
     >
-      <source src="/assets/videos/company-intro.mp4" type="video/mp4">
-      <source src="/assets/videos/company-intro.webm" type="video/webm">
-      您的浏览器不支持 HTML5 视频播放，请尝试使用现代浏览器访问。
+      <source src="https://www.tongrentang.com/file/upload/jkqinghai.mp4" type="video/mp4">
+      您的浏览器不支持 HTML5 视频播放。
     </video>
   </div>
+  
   <p style="color: #666; margin-top: 1rem; font-size: 0.9rem;">
-    点击播放，了解同仁堂健康药业（青海）的现代化生产基地与工艺流程
+    点击播放，深入了解同仁堂健康药业（青海）的现代化生产基地与严格的质量控制流程
   </p>
 </div>
+
+<!-- 其余页面内容保持不变 -->
 
 ## 🏔️ 我们的核心优势
 <!-- 其余内容保持不变 -->
