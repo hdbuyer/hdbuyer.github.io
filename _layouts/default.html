@@ -129,7 +129,7 @@
             }
         }
         
-        /* 自定义样式（保持之前的样式） */
+        /* 自定义样式 */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -185,6 +185,77 @@
             padding: 2rem;
             border-radius: 8px;
             margin: 2rem 0;
+        }
+        
+        /* 视频播放器样式 */
+        .video-container {
+            position: relative;
+            background: #000;
+            transition: transform 0.3s ease;
+        }
+        
+        .video-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .video-container::before {
+            content: '';
+            display: block;
+            padding-top: 56.25%; /* 16:9 宽高比 */
+        }
+        
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #000;
+        }
+        
+        #video-poster {
+            transition: all 0.3s ease;
+        }
+        
+        #video-poster:hover {
+            background: linear-gradient(rgba(211,47,47,0.2), rgba(211,47,47,0.2)), url('/assets/images/video-poster.jpg') center/cover !important;
+        }
+        
+        #video-poster:hover div:first-child {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        
+        /* 视频控制条自定义样式 */
+        video::-webkit-media-controls-panel {
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        }
+        
+        video::-webkit-media-controls-play-button {
+            background-color: #d32f2f;
+            border-radius: 50%;
+        }
+        
+        video::-webkit-media-controls-current-time-display,
+        video::-webkit-media-controls-time-remaining-display {
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .video-container {
+                margin: 0 1rem;
+            }
+            
+            #video-poster div:first-child {
+                font-size: 3rem;
+            }
+            
+            #video-poster h3 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
