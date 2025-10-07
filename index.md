@@ -13,28 +13,17 @@ title: "首页"
 ## 🎬 企业介绍视频
 
 <div style="text-align: center; margin: 3rem 0;">
-  <div class="video-container" style="max-width: 800px; margin: 0 auto; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); position: relative;">
+  <div class="video-container" style="max-width: 800px; margin: 0 auto; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
     
-    <!-- 视频封面图和播放按钮 -->
-    <div id="video-poster" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(211,47,47,0.1), rgba(211,47,47,0.1)), url('/assets/images/video-poster.jpg') center/cover; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2;">
-      <div style="text-align: center; color: white;">
-        <div style="font-size: 4rem; margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">▶</div>
-        <h3 style="margin: 0; font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">播放企业宣传片</h3>
-        <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">了解同仁堂健康药业的现代化生产基地</p>
-      </div>
-    </div>
-    
-    <!-- 视频播放器 - 使用您提供的URL -->
+    <!-- 视频播放器 - 请将YOUR_VIDEO_URL替换为实际视频链接 -->
     <video 
-      id="company-video"
       controls 
       width="100%" 
-      preload="metadata"
-      style="display: none; position: relative; z-index: 1;"
       poster="/assets/images/video-poster.jpg"
+      style="display: block;"
     >
-      <source src="https://www.tongrentang.com/file/upload/jkqinghai.mp4" type="video/mp4">
-      您的浏览器不支持 HTML5 视频播放，请 <a href="https://www.tongrentang.com/file/upload/jkqinghai.mp4" target="_blank" style="color: #d32f2f;">点击这里下载观看</a>。
+      <source src="YOUR_VIDEO_URL_HERE" type="video/mp4">
+      您的浏览器不支持 HTML5 视频播放。
     </video>
   </div>
   
@@ -43,80 +32,7 @@ title: "首页"
   </p>
 </div>
 
-<script>
-// 视频播放控制 - 优化版本
-document.addEventListener('DOMContentLoaded', function() {
-    const video = document.getElementById('company-video');
-    const poster = document.getElementById('video-poster');
-    
-    // 预加载视频元数据以提高响应速度
-    if (video) {
-        video.load();
-    }
-    
-    if (poster && video) {
-        poster.addEventListener('click', function() {
-            // 隐藏封面，显示视频
-            poster.style.display = 'none';
-            video.style.display = 'block';
-            
-            // 尝试播放视频
-            const playPromise = video.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.catch(function(error) {
-                    console.log('视频播放失败:', error);
-                    // 显示友好的错误信息
-                    poster.innerHTML = `
-                        <div style="text-align: center; color: white; padding: 2rem;">
-                            <h3>视频播放遇到问题</h3>
-                            <p>请尝试刷新页面或直接<a href="https://www.tongrentang.com/file/upload/jkqinghai.mp4" target="_blank" style="color: #ffcc00; text-decoration: underline;">下载视频</a>观看</p>
-                            <button onclick="location.reload()" style="background: #d32f2f; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-top: 1rem;">重新加载</button>
-                        </div>
-                    `;
-                    poster.style.display = 'flex';
-                });
-            }
-        });
-    }
-    
-    // 视频结束时显示封面图
-    if (video) {
-        video.addEventListener('ended', function() {
-            poster.style.display = 'flex';
-            video.style.display = 'none';
-        });
-        
-        // 视频加载错误处理
-        video.addEventListener('error', function(e) {
-            console.log('视频加载错误:', e);
-            poster.innerHTML = `
-                <div style="text-align: center; color: white; padding: 2rem;">
-                    <h3>视频加载失败</h3>
-                    <p>网络连接问题或视频暂时不可用</p>
-                    <button onclick="location.reload()" style="background: #d32f2f; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-top: 1rem;">重新加载</button>
-                </div>
-            `;
-            poster.style.display = 'flex';
-        });
-    }
-});
-
-// 添加键盘支持 - 按空格键播放/暂停
-document.addEventListener('keydown', function(e) {
-    if (e.code === 'Space') {
-        const video = document.getElementById('company-video');
-        if (video && video.style.display === 'block') {
-            e.preventDefault();
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
-        }
-    }
-});
-</script>
+<!-- 其余页面内容保持不变 -->
 
 ## 🏔️ 我们的核心优势
 
