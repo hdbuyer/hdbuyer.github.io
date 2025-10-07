@@ -22,7 +22,7 @@ title: "首页"
       poster="/assets/images/video-poster.jpg"
       style="display: block;"
     >
-      <source src="YOUR_VIDEO_URL_HERE" type="video/mp4">
+      <source src="https://www.tongrentang.com/file/upload/jkqinghai.mp4" type="video/mp4">
       您的浏览器不支持 HTML5 视频播放。
     </video>
   </div>
