@@ -1,19 +1,30 @@
 # 网站基本信息
-title: "您的公司名称"
-description: "专业食品生产制造商，专注于健康美味食品"
-baseurl: "" 
-url: "https://您的用户名.github.io" 
-
-# 主题设置（使用GitHub Pages支持的默认主题）
-theme: jekyll-theme-cayman
-
-# 联系信息
-company_name: "您的公司名称"
-address: "您的工厂地址"
-phone: "您的联系电话"
-email: "您的邮箱"
+title: "北京同仁堂健康药业（青海）有限公司"
+description: "传承同仁堂古训，深耕青藏特色生物资源，提供优质健康产品"
+baseurl: ""
+url: "https://hdbuyer.github.io"
 
 # 构建设置
+theme: jekyll-theme-cayman
 markdown: kramdown
 plugins:
   - jekyll-feed
+
+# === 公司信息 ===
+company_name: "北京同仁堂健康药业（青海）有限公司"
+# 公司成立时间信息来源于商业登记
+establishment_date: 2017-08-04
+location: "青海省海西州德令哈市河西街道同仁堂路1号"
+
+# 联系信息
+phone: "请补充您的联系电话"
+email: "请补充您的业务邮箱"
+
+# 企业文化 (以下文化理念来源于同仁堂官方渠道)
+corporate_spirit: "传承 发扬 创新 引领"
+self_discipline: "修合无人见，存心有天知"
+product_tenet: "配方独特、选料上乘、工艺精湛、疗效显著"
+original_intention: "集百草而香天下，普健康而惠众生"
+development_concept: "人才、技术双驱动、智能管理、服务至上"
+work_style: "事事有回音，件件有着落"
+company_vision: "青藏生物资源让生活更美好！"
