@@ -10,7 +10,7 @@ title: "首页"
   </p>
 </div>
 
-## 🎬 企业宣传视频
+## 🎬 企业介绍
 
 <div style="text-align: center; margin: 3rem 0;">
   <div class="video-container" style="max-width: 800px; margin: 0 auto; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
