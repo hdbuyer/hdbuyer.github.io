@@ -111,3 +111,9 @@ title: "产品中心"
     <a href="/contact" class="cta-button" style="background: #2e7d32;">获取定制方案</a>
   </div>
 </div>
+
+<div style="text-align: center; margin-top: 2rem;">
+  <a href="/" class="cta-button">返回首页</a>
+  <a href="/about" class="cta-button">关于我们</a>
+  <a href="/contact" class="cta-button">合作咨询</a>
+</div>
