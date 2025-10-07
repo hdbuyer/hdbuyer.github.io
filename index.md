@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "首页 - 北京同仁堂健康药业（青海）有限公司"
+title: "首页"
 ---
 
 <div class="company-intro">
-  <h1>传承同仁堂精髓，创新健康产业</h1>
-  <p style="font-size: 1.2em; line-height: 1.6;">
+  <h1 style="text-align: center; color: #d32f2f;">传承同仁堂精髓，创新健康产业</h1>
+  <p style="font-size: 1.2em; line-height: 1.6; text-align: center;">
     自 <strong>2017年</strong> 扎根于金色德令哈，我们肩负着将青藏高原"<strong>净土、净水、净空、净心</strong>"孕育的特色生物资源，通过同仁堂 <strong>355年</strong> 的匠心工艺，惠及天下众生的使命。
   </p>
 </div>
@@ -67,7 +67,7 @@ title: "首页 - 北京同仁堂健康药业（青海）有限公司"
       <li>有机产品认证</li>
       <li>出口资质备案</li>
     </ul>
-    <a href="/quality" class="cta-button">了解详情</a>
+    <a href="/about" class="cta-button">了解详情</a>
   </div>
 </div>
 
