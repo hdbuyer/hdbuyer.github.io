@@ -105,3 +105,9 @@ title: "关于我们"
     <li><strong>出口食品生产企业备案</strong></li>
   </ul>
 </div>
+
+<div style="text-align: center; margin-top: 2rem;">
+  <a href="/" class="cta-button">返回首页</a>
+  <a href="/products" class="cta-button">查看产品</a>
+  <a href="/contact" class="cta-button">联系我们</a>
+</div>
