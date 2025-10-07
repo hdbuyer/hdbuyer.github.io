@@ -82,3 +82,9 @@ title: "联系我们"
   <p>我们的专业团队将为您提供一对一的服务，根据您的需求定制最佳解决方案。</p>
   <a href="tel:{{ site.phone }}" class="cta-button" style="background: white; color: #667eea;">立即致电咨询</a>
 </div>
+
+<div style="text-align: center; margin-top: 2rem;">
+  <a href="/" class="cta-button">返回首页</a>
+  <a href="/products" class="cta-button">产品中心</a>
+  <a href="/about" class="cta-button">关于我们</a>
+</div>
