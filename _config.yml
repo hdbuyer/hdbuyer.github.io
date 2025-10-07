@@ -3,6 +3,7 @@ title: "北京同仁堂健康药业（青海）有限公司"
 description: "传承同仁堂古训，深耕青藏特色生物资源，提供优质健康产品"
 baseurl: ""
 url: "https://hdbuyer.github.io"
+lang: "zh-CN"
 
 # 构建设置
 theme: jekyll-theme-cayman
@@ -10,9 +11,8 @@ markdown: kramdown
 plugins:
   - jekyll-feed
 
-# === 公司信息 ===
+# 公司信息
 company_name: "北京同仁堂健康药业（青海）有限公司"
-# 公司成立时间信息来源于商业登记
 establishment_date: 2017-08-04
 location: "青海省海西州德令哈市河西街道同仁堂路1号"
 
@@ -20,7 +20,7 @@ location: "青海省海西州德令哈市河西街道同仁堂路1号"
 phone: "请补充您的联系电话"
 email: "请补充您的业务邮箱"
 
-# 企业文化 (以下文化理念来源于同仁堂官方渠道)
+# 企业文化
 corporate_spirit: "传承 发扬 创新 引领"
 self_discipline: "修合无人见，存心有天知"
 product_tenet: "配方独特、选料上乘、工艺精湛、疗效显著"
@@ -28,3 +28,46 @@ original_intention: "集百草而香天下，普健康而惠众生"
 development_concept: "人才、技术双驱动、智能管理、服务至上"
 work_style: "事事有回音，件件有着落"
 company_vision: "青藏生物资源让生活更美好！"
+
+# 自定义样式
+custom_css: |
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .feature-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #d32f2f;
+  }
+  .cta-button {
+    display: inline-block;
+    background: #d32f2f;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 1rem 0;
+    font-weight: bold;
+  }
+  .company-intro {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+  }
